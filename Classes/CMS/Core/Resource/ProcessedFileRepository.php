@@ -23,6 +23,14 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  * @author Sascha Heilmeier <s.heilmeier@misterknister.com>
  */
 class ProcessedFileRepository extends \TYPO3\CMS\Core\Resource\ProcessedFileRepository {
+
+    protected $databaseConnection;
+
+    public function __construct() {
+        parent::__construct();
+        $this->databaseConnection = $GLOBALS['TYPO3_DB'];
+    }
+
 	/**
 	 * Get all shrunken elements
 	 *
